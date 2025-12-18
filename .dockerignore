@@ -1,0 +1,50 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+
+# env
+venv/
+env/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Git
+.git/
+.gitignore
+
+# Docs
+docs/_build/
+*.md
+
+# Test
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Credentials
+.env
+*.pem
+*.key
+gcp-key.json
+credentials.json
+
+# Logs
+*.log
+logs/
+
+# Data
+*.csv
+*.parquet
+data/
+

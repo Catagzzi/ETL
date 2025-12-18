@@ -118,7 +118,6 @@ docs/_build/
 site/
 
 # database dumps
-*.sql
 *.dump
 *.backup
 
