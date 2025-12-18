@@ -1,0 +1,147 @@
+# Pythonx
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+
+# PyCharm
+.idea/
+
+# VS Code
+.vscode/
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# Docker
+**/data/
+**/volumes/
+mysql-data/
+postgres-data/
+kafka-data/
+zookeeper-data/
+
+# containers
+**/logs/
+*.log
+
+# Kafka 
+kafka-logs/
+__consumer_offsets*/
+*.index
+*.timeindex
+
+# Credentials 
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+*.crt
+credentials.json
+secrets.yaml
+config/secrets/
+
+# Cloud credentials
+gcp-key.json
+aws-credentials.json
+service-account.json
+
+# Spark
+spark-warehouse/
+metastore_db/
+derby.log
+*.parquet
+*.orc
+
+# Spark event logs
+spark-events/
+
+# OS Files
+.DS_Store
+
+# IDEs
+.classpath
+.project
+.settings/
+bin/
+
+# NetBeans
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+
+# temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+.*.swp
+
+# test coverage
+.coverage
+.pytest_cache/
+htmlcov/
+.tox/
+.nox/
+coverage.xml
+*.cover
+
+# documentation build
+docs/_build/
+site/
+
+# database dumps
+*.sql
+*.dump
+*.backup
+
+# initialization scripts
+!mysql-init/*.sql
+!postgres-init/*.sql
+
+# compiled code
+*.class
+*.jar
+*.war
+*.ear
+
+# archives
+*.zip
+*.tar.gz
+*.rar
+
+# large datasets
+*.csv
+*.parquet
+*.json
+
+# data files
+!examples/*.csv
+!sample-data/*.json
