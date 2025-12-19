@@ -1,0 +1,9 @@
+# to execute data generator locally
+mysql-connector-python==8.2.0
+faker==20.1.0
+python-dotenv==1.0.0
+
+# spark
+pyspark==3.5.0
+kafka-python==2.0.2
+google-cloud-bigquery==3.13.0

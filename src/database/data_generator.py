@@ -109,7 +109,7 @@ class ProductGenerator:
             product_id, name, old_price = result
             
             change = random.uniform(-0.20, 0.20)
-            new_price = round(max(0.99, old_price * (1 + change)), 2)
+            new_price = round(max(0.99, float(old_price) * (1 + change)), 2)
             
             cursor.execute("""
                 UPDATE products

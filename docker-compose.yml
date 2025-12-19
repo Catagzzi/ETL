@@ -142,6 +142,12 @@ services:
       VALUE_CONVERTER: org.apache.kafka.connect.json.JsonConverter
       CONNECT_KEY_CONVERTER_SCHEMA_REGISTRY_URL: http://schema-registry:8081
       CONNECT_VALUE_CONVERTER_SCHEMA_REGISTRY_URL: http://schema-registry:8081
+      # for debezium
+      MYSQL_HOST: mysql-source
+      MYSQL_PORT: 3306
+      MYSQL_USER: ${MYSQL_USER:-dbuser}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-dbpassword}
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-orders_db}
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8083/"]
       interval: 15s
@@ -219,6 +225,31 @@ services:
     command: start-notebook.sh --NotebookApp.token='' --NotebookApp.password=''
     networks:
       - etl-network
+
+  # to register debezium connector
+  connector-init:
+    image: curlimages/curl:latest
+    container_name: connector-init
+    depends_on:
+      kafka-connect:
+        condition: service_healthy
+    volumes:
+      - ./src/config:/config
+    command:
+      - sh
+      - -c
+      - |
+        sleep 15
+        echo "Registering debezium connector"
+        curl -X DELETE http://kafka-connect:8083/connectors/mysql-products-connector 2>/dev/null || true
+        sleep 2
+        curl -X POST http://kafka-connect:8083/connectors -H "Content-Type: application/json" -d @/config/debezium-mysql-connector.json
+        echo "Connector registered"
+        sleep 5
+        curl -s http://kafka-connect:8083/connectors/mysql-products-connector/status | grep -q "RUNNING" && echo "Connector is RUNNING" || echo "Check connector status"
+    networks:
+      - etl-network
+    restart: "no"
 
 volumes:
   mysql-data:

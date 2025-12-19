@@ -1,3 +1,6 @@
+# Sensitive information
+src/config/debezium-mysql-connector.json
+
 # Pythonx
 __pycache__/
 *.py[cod]
@@ -139,7 +142,6 @@ site/
 # large datasets
 *.csv
 *.parquet
-*.json
 
 # data files
 !examples/*.csv

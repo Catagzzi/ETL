@@ -1,0 +1,29 @@
+{
+  "name": "mysql-products-connector",
+  "config": {
+    "connector.class": "io.debezium.connector.mysql.MySqlConnector",
+    "tasks.max": "1",
+    "database.hostname": "MYSQL_HOST_PLACEHOLDER",
+    "database.port": "MYSQL_PORT_PLACEHOLDER",
+    "database.user": "MYSQL_USER_PLACEHOLDER",
+    "database.password": "MYSQL_PASSWORD_PLACEHOLDER",
+    "database.server.id": "184054",
+    "topic.prefix": "dbserver1",
+    "database.include.list": "MYSQL_DATABASE_PLACEHOLDER",
+    "table.include.list": "MYSQL_DATABASE_PLACEHOLDER.products",
+    "schema.history.internal.kafka.bootstrap.servers": "kafka:29092",
+    "schema.history.internal.kafka.topic": "schema-changes.MYSQL_DATABASE_PLACEHOLDER",
+    "include.schema.changes": "true",
+    "transforms": "unwrap",
+    "transforms.unwrap.type": "io.debezium.transforms.ExtractNewRecordState",
+    "transforms.unwrap.drop.tombstones": "false",
+    "transforms.unwrap.delete.handling.mode": "rewrite",
+    "key.converter": "org.apache.kafka.connect.json.JsonConverter",
+    "key.converter.schemas.enable": "false",
+    "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+    "value.converter.schemas.enable": "false",
+    "snapshot.mode": "initial",
+    "decimal.handling.mode": "double",
+    "time.precision.mode": "connect"
+  }
+}
